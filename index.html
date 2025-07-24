@@ -67,5 +67,11 @@
         </div>
     </section>   
   </div>
+  const toggle = document.getElementById('navbar-toggle');
+    const menu = document.getElementById('navbar-right');
+  
+    toggle.addEventListener('click', () => {
+      menu.classList.toggle('active');
+    });
 </body>
 </html>
