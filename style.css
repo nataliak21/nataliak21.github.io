@@ -139,7 +139,6 @@
   @media (max-width: 768px) {
     #navbar {
       padding: 10px;
-      flex-direction: column;
     }
   
     #navbar .container {
@@ -148,24 +147,30 @@
     }
   
     #navbar #logo {
-      font-size: 22px;
+      font-size: 20px;
       margin-bottom: 10px;
     }
   
     #navbar-right {
       display: flex;
       flex-direction: column;
-      gap: 10px;
+      align-items: flex-start;
       width: 100%;
+      gap: 6px;
     }
   
     #navbar-right a {
-      display: block;
       width: 100%;
-      padding: 10px;
-      font-size: 18px;
       text-align: left;
-      border-radius: 8px;
+      padding: 8px 12px;
+      font-size: 16px;
+      background-color: transparent;
+      border-radius: 6px;
+    }
+  
+    #navbar-right a:hover {
+      background-color: #e6b0ee;
+      color: black;
     }
   
     #navbar a.active {
@@ -173,4 +178,3 @@
       color: white;
     }
   }
-  
