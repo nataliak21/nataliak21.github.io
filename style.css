@@ -12,23 +12,19 @@
     line-height: 1.6;
     margin: 0;
     background: linear-gradient(135deg, #f2f2f2 0%, #fce4ec 100%);
-    padding: 0 20px;
-    box-sizing: border-box;
   }
 
   h2 {
     font-size: 28px;
-      color: #6a1b9a;
-      border-bottom: 2px solid #e6b0ee;
-      padding-bottom: 5px;
-      margin-bottom: 20px;
-      margin-top: 20px;
+    color: #6a1b9a;
+    border-bottom: 2px solid #e6b0ee;
+    padding-bottom: 5px;
+    margin-bottom: 20px;
   }
   
   h3 {
     font-size: 22px;
-      color: #9c27b0;
-      margin-top: 20px;
+    color: #9c27b0;
   }
   .container {
     max-width: 1200px;
@@ -53,13 +49,7 @@
     justify-content: space-between;
     align-items: center;
   }
-  #navbar #logo {
-    font-size: 25px;
-    font-weight: bold;
-    color: white;
-    text-decoration: none;
-    transition: 0.4s;
-  }
+  
   #navbar a {
     color: white;
     text-align: center;
@@ -69,19 +59,33 @@
     line-height: 25px;
     border-radius: 4px;
   }
+  section {
+    background-color: white;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  }
+  
+  .about img {
+    width: 220px;
+    height: auto;
+    border-radius: 15px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+  }
+  #navbar #logo {
+    font-size: 25px;
+    font-weight: bold;
+    transition: 0.4s;
+  }
+  
   #navbar a:hover {
     background-color: #e6b0ee;
     color: black;
   }
+  
   #navbar a.active {
     background-color: #c770d4;
     color: white;
-  }
-  #navbar-toggle {
-    display: none;
-    font-size: 24px;
-    color: white;
-    cursor: pointer;
   }
   #o-mnie {
     margin-top:100px;
@@ -91,14 +95,6 @@
   }
   #zdjecia,#kontakt{
     margin-top:60px;
-  }  
-  section {
-    background-color: white;
-    padding: 30px;
-    border-radius: 15px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-    margin-bottom: 40px;
-    scroll-margin-top: 120px;
   }
   .about {
     display: flex;
@@ -106,21 +102,20 @@
     gap: 30px;
     flex-wrap: wrap;
   }
+  
   .about img {
     width: 250px;
     border-radius: 10px;
     object-fit: cover;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
-    transition: transform 0.3s ease;
-  }
-  .about img:hover {
-    transform: scale(1.03);
   }
   .about-text {
     flex: 1;
     min-width: 300px;
   }
-  
+  .about img:hover {
+    transform: scale(1.03);
+    transition: transform 0.3s ease;
+  }
   .about-text p {
     margin-bottom: 15px;
   }
@@ -133,7 +128,64 @@
     padding-left: 1.2em;
     margin-top: 0.5em;
   }
-
+  h2, h3 {
+    margin-top: 20px;
+  }
+  
+  section {
+    margin-bottom: 40px;
+    scroll-margin-top: 120px;
+  }
+  @media (max-width: 768px) {
+    #navbar {
+      padding: 10px 16px;
+    }
+  
+    #navbar .container {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+    }
+  
+    #navbar #logo {
+      font-size: 24px;
+      margin-bottom: 12px;
+    }
+  
+    #navbar-right {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      width: 100%;
+    }
+  
+    #navbar-right a {
+      display: block;
+      width: 100%;
+      font-size: 18px;
+      padding: 10px;
+      border-radius: 8px;
+      text-align: left;
+      background-color: transparent;
+      color: white;
+    }
+  
+    #navbar-right a.active {
+      background-color: #c770d4;
+      color: white;
+    }
+  
+    #navbar-right a:hover {
+      background-color: #e6b0ee;
+    }
+  }
+  #navbar-toggle {
+    display: none;
+    font-size: 24px;
+    color: white;
+    cursor: pointer;
+  }
+  
   @media (max-width: 768px) {
     #navbar .container {
       flex-direction: row;
@@ -161,13 +213,16 @@
       text-align: left;
       width: 100%;
       border-radius: 8px;
-      font-size: 18px;
     }
+  
     #navbar a.active {
       background-color: #c770d4;
       color: white;
     }
-    #navbar-right a:hover {
-      background-color: #e6b0ee;
-    }
+  }
+  
+
+  body {
+    padding: 0 16px;
+    box-sizing: border-box;
   }
