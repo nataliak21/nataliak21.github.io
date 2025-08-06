@@ -1,4 +1,4 @@
-*  {
+* {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
@@ -6,11 +6,16 @@
 
 body {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  color: #333;
   font-size: 17px;
   line-height: 1.6;
-  margin: 0;
+  color: #333;
   background: linear-gradient(135deg, #f2f2f2 0%, #fce4ec 100%);
+  padding-top: 120px; /* dla odstępu od navbaru */
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
 h2 {
@@ -19,28 +24,23 @@ h2 {
   border-bottom: 2px solid #e6b0ee;
   padding-bottom: 5px;
   margin-bottom: 20px;
+  margin-top: 20px;
 }
 
 h3 {
   font-size: 22px;
   color: #9c27b0;
-}
-.container {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding-left: 0px;
-  padding-right: 0px;
+  margin-top: 20px;
 }
 
 #navbar {
-  overflow: hidden;
   background-color: black;
   padding: 20px 10px;
-  transition: 0.4s;
   position: fixed;
-  width: 100%;
   top: 0;
+  width: 100%;
   z-index: 99;
+  transition: 0.4s;
 }
 
 #navbar .container {
@@ -49,32 +49,20 @@ h3 {
   align-items: center;
 }
 
-#navbar a {
+#logo {
+  font-size: 25px;
+  font-weight: bold;
   color: white;
-  text-align: center;
+  text-decoration: none;
+}
+
+#navbar-right a {
+  color: white;
   padding: 12px;
   text-decoration: none;
   font-size: 18px;
-  line-height: 25px;
   border-radius: 4px;
-}
-section {
-  background-color: white;
-  padding: 30px;
-  border-radius: 15px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-}
-
-.about img {
-  width: 220px;
-  height: auto;
-  border-radius: 15px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
-}
-#navbar #logo {
-  font-size: 25px;
-  font-weight: bold;
-  transition: 0.4s;
+  display: inline-block;
 }
 
 #navbar a:hover {
@@ -86,67 +74,94 @@ section {
   background-color: #c770d4;
   color: white;
 }
-#o-mnie {
-  margin-top:100px;
+
+section {
+  background-color: white;
+  padding: 30px;
+  border-radius: 15px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  margin-bottom: 40px;
+  scroll-margin-top: 120px;
 }
-#o-mnie h3 + ul {
-  padding-left: 40px;
-}
-#zdjecia,#kontakt{
-  margin-top:60px;
-}
+
 .about {
   display: flex;
+  flex-wrap: wrap;
   align-items: flex-start;
   gap: 30px;
-  flex-wrap: wrap;
 }
 
 .about img {
   width: 250px;
   border-radius: 10px;
   object-fit: cover;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+  transition: transform 0.3s ease;
 }
+
+.about img:hover {
+  transform: scale(1.03);
+}
+
 .about-text {
   flex: 1;
   min-width: 300px;
 }
-.about img:hover {
-  transform: scale(1.03);
-  transition: transform 0.3s ease;
-}
+
 .about-text p {
   margin-bottom: 15px;
 }
+
 .about-text h3 {
-  margin-top: 25px;
-  margin-bottom: 10px;
+  margin: 25px 0 10px;
 }
 
 .about-text ul {
   padding-left: 1.2em;
   margin-top: 0.5em;
 }
-h2, h3 {
-  margin-top: 20px;
+
+#o-mnie {
+  margin-top: 100px;
 }
 
-section {
-  margin-bottom: 40px;
-  scroll-margin-top: 120px;
+#zdjecia, #kontakt {
+  margin-top: 60px;
 }
+
+#notatki-lista {
+  list-style: none;
+  padding-left: 0;
+  margin-bottom: 20px;
+}
+
+#notatki-lista li {
+  margin-bottom: 12px;
+}
+
+#notatki-lista a {
+  color: #6a1b9a;
+  font-weight: bold;
+  text-decoration: none;
+  font-size: 18px;
+}
+
+#notatki-lista a:hover {
+  text-decoration: underline;
+  color: #9c27b0;
+}
+
 @media (max-width: 768px) {
   #navbar {
     padding: 10px 16px;
   }
 
   #navbar .container {
-    display: flex;
     flex-direction: column;
     align-items: flex-start;
   }
 
-  #navbar #logo {
+  #logo {
     font-size: 24px;
     margin-bottom: 12px;
   }
@@ -159,69 +174,23 @@ section {
   }
 
   #navbar-right a {
-    display: block;
     width: 100%;
+    text-align: left;
     font-size: 18px;
     padding: 10px;
-    border-radius: 8px;
-    text-align: left;
-    background-color: transparent;
-    color: white;
-  }
-
-  #navbar-right a.active {
-    background-color: #c770d4;
-    color: white;
-  }
-
-  #navbar-right a:hover {
-    background-color: #e6b0ee;
-  }
-}
-#navbar-toggle {
-  display: none;
-  font-size: 24px;
-  color: white;
-  cursor: pointer;
-}
-
-@media (max-width: 768px) {
-  #navbar .container {
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-  }
-
-  #navbar-toggle {
-    display: block;
-  }
-
-  #navbar-right {
-    display: none;
-    flex-direction: column;
-    width: 100%;
-    margin-top: 10px;
-  }
-
-  #navbar-right.active {
-    display: flex;
-  }
-
-  #navbar-right a {
-    padding: 12px;
-    text-align: left;
-    width: 100%;
     border-radius: 8px;
   }
 
   #navbar a.active {
     background-color: #c770d4;
-    color: white;
   }
-}
 
+  .about {
+    flex-direction: column;
+    align-items: center;
+  }
 
-body {
-  padding: 0px;
-  box-sizing: border-box;
+  .about-text {
+    text-align: center;
+  }
 }

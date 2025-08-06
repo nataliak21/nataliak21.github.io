@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Klucz SSH i podstawowe komendy Git’a</title>
+  <link rel="stylesheet" href="notes.css" />
+</head>
+<body>
+  <section class="notatka">
+    <h1>Klucz SSH i podstawowe komendy Git’a</h1>
+
+    <h3>SSH</h3>
+    <ol>
+      <li><strong>Co to jest klucz SSH?</strong><br>
+        Klucz SSH to klucz publiczny i prywatny, służący do bezpiecznego łączenia się ze zdalnymi serwerami. Klucz publiczny służy do kodowania informacji i może być przekazywany innym, natomiast klucz prywatny służy do ich odczytywania i musi być odpowiednio zabezpieczony, aby nie trafił w niepowołane ręce.
+      </li>
+      <li><strong>Jak działa SSH?</strong><br>
+        Działanie kluczy SSH oparte jest na tym, że są one w stanie wzajemnie się rozpoznawać. Zawsze funkcjonują w parach, umożliwiając bezpieczne połączenie ze zdalnym komputerem. Publiczny klucz z serwera weryfikuje obecność swojego prywatnego odpowiednika. Jeśli jest on poprawny, powinno nastąpić połączenie.
+      </li>
+      <li><strong>Jak stworzyć parę kluczy SSH za pomocą Git Bash i jak dodać klucz SSH do konta GitHub?</strong><br>
+        Podczas tworzenia kluczy SSH pierwszym krokiem powinno być sprawdzenie, czy przypadkiem taki klucz nie istnieje. Aby to wykonać, należy otworzyć Git Bash i wpisać poniższą komendę:
+
+        <pre><code>ls -al ~/.ssh</code></pre>
+
+        Jeżeli wyświetli się błąd mówiący o nieistnieniu podkatalogu `.ssh` oraz związanych z nim plików, oznacza to, że nie posiadasz pary kluczy SSH w domyślnej lokalizacji i możesz je wygenerować.
+
+        <br><br>
+        Aby wygenerować parę kluczy SSH należy użyć komendy:
+
+        <pre><code>ssh-keygen -t ed25519 -C "twoj_email@przyklad.com"</code></pre>
+
+        Zamień <code>twoj_email@przyklad.com</code> na swój adres e-mail używany na GitHubie. Komenda utworzy nową parę kluczy SSH, wykorzystując podany adres jako etykietę.
+
+        <br><br>
+        W trakcie generowania kluczy zobaczysz coś takiego:
+
+        <pre><code>Generating public/private ed25519 key pair.
+Enter a file in which to save the key (/c/Users/nazwa_użytkownika/.ssh/id_ed25519):</code></pre>
+
+        Naciśnij <strong>Enter</strong>, aby zapisać klucz w domyślnej lokalizacji. Albo możesz wpisać inną lokalizację w której chciałbyś zapisać klucz. 
+
+        <br><br>
+        Następnie program zapyta o hasło (opcjonalne dodatkowe zabezpieczenie). Jeśli nie chcesz ustawiać hasła, naciśnij dwa razy Enter:
+
+        <pre><code>Enter passphrase (empty for no passphrase):
+Enter same passphrase again:</code></pre>
+
+        <p class="alert">Podczas wpisywania hasła nie będzie ono widoczne!!!</p>
+
+        Aby dodać klucz SSH do konta GitHub:
+
+        <ol>
+          <li>Otwórz plik <code>id_ed25519.pub</code> w edytorze tekstowym (np. Notatnik).</li>
+          <li>Skopiuj całą zawartość tego pliku.</li>
+          <li>Przejdź na <strong>GitHub</strong> → <strong>Settings</strong> → <strong>SSH and GPG keys</strong>.</li>
+          <li>Kliknij <strong>New SSH key</strong>, wpisz nazwę (np. „Mój laptop”) i wklej klucz w pole <strong>Key</strong>.</li>
+          <li>Kliknij <strong>Add SSH key</strong>, aby zapisać.</li>
+        </ol>
+      </li>
+    </ol>
+
+    <h3>Podstawowe komendy Git’a</h3>
+    <ol>
+      <li><strong>git init</strong> – Tworzy nowe repozytorium git w bieżącym katalogu.</li>
+      <li><strong>git status</strong> – Podaje wszystkie informacje na temat aktualnego stanu repozytorium.</li>
+      <li><strong>git add</strong> – Dodaje nowe lub zmienione pliki z katalogu roboczego do obszaru tymczasowego.</li>
+      <p>Można dodać konkretny plik:</p>
+      <pre><code>git add nazwa_pliku</code></pre>
+      lub dodać wszystkie nowe lub zmodyfikowane pliki:
+      <pre><code>git add .</code></pre>
+
+      <li><strong>git commit</strong> – Zatwierdza dodane zmiany z komentarzem dotyczącym wykonanych modyfikacji.</li>
+      <pre><code>git commit -m "Komentarz dotyczący aktualizacji"</code></pre>
+
+      <li><strong>git push</strong> – Wysyła lokalne zmiany do repozytorium zdalnego.</li>
+      <pre><code>git push origin main</code></pre>
+      <li><strong>git pull</strong> – Pobiera zmiany z repozytorium zdalnego.</li>
+      <pre><code>git pull origin main</code></pre>
+    </ol>
+
+
+    <p><a href="index.html#notatki">⬅ Wróć do listy notatek</a></p>
+  </section>
+</body>
+</html>
